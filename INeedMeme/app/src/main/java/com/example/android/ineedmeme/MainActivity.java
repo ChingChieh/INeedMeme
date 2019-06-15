@@ -10,6 +10,7 @@ import com.squareup.picasso.Picasso;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,8 +39,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void hey(View view) {
-        for (int i = 0; i < dog_meme.count; ++i){
-            Log.d("image-dog", dog_meme.SA[i]);
-        }
+//        for (int i = 0; i < dog_meme.count; ++i){
+//            Log.d("image-dog", dog_meme.SA[i]);
+//        }
+        Random r = new Random();
+        int n = r.nextInt(dog_meme.count);
+        Picasso.get()
+                .load(dog_meme.SA[n])
+                .resize(1000,1000)
+                .into(meme);
     }
 }
