@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -18,8 +19,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
     private ViewPager mViewPager;
     private LinearLayout mLinearLayout;
+    private ImageButton arrow;
     private List<ImageView> mImageList = new ArrayList<ImageView>();
-    private int[] mPics = new int[]{R.drawable.guide1, R.drawable.guide2, R.drawable.guide3};
+    private int[] mPics = new int[]{R.drawable.part1_1, R.drawable.part1_2, R.drawable.part1_3};
     private int mNum = 0;
 
 
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private void bindID() {
         mViewPager = findViewById(R.id.main_viewpager);
         mLinearLayout = findViewById(R.id.main_linear);
+        arrow = findViewById(R.id.button2);
+        arrow.setVisibility(View.INVISIBLE);
     }
     private void getData() {
         ImageView imageView;
@@ -84,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @Override
     public void onPageSelected(int position) {
+        if(position == 2)   arrow.setVisibility(View.VISIBLE);
+        else arrow.setVisibility(View.INVISIBLE);
         mLinearLayout.getChildAt(mNum).setEnabled(false);
         mLinearLayout.getChildAt(position).setEnabled(true);
         mNum = position;
