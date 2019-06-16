@@ -42,6 +42,7 @@ public class GetImage extends AsyncTask<String, Void, String> {
             mDataStruct.get().SA[i] = img_url[i];
         }
         mDataStruct.get().accessible = 1;
+        MemeActivity.nextmeme.setEnabled(true);
     }
 
     private void getImages(String url) {

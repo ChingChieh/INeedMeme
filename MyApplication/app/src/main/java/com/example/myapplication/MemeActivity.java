@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -17,6 +18,7 @@ public class MemeActivity extends AppCompatActivity {
 
     ImageView meme;
     String query = "https://www.google.co.in/search?biw=1366&bih=675&tbm=isch&sa=1&num=1000&ei=qFSJWsuTNc-wzwKFrZHoCw&q=";
+    public static Button nextmeme;
     // GetImage getMeme = new GetImage();
     DataStruct meme_struct = new DataStruct();
     int search_ready = 0;
@@ -25,6 +27,9 @@ public class MemeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meme);
         meme = (ImageView)findViewById(R.id.Meme_img);
+        /*防止網路處理未完成就access的情形*/
+        nextmeme = findViewById(R.id.button5);
+        nextmeme.setEnabled(false);
 
         meme_struct.SA = new String[102];
         meme_struct.accessible = 0;
@@ -47,5 +52,11 @@ public class MemeActivity extends AppCompatActivity {
                 .load(meme_struct.SA[n])
                 .resize(1000, 1000)
                 .into(meme);
+    }
+
+    public void Back2search(View view) {
+        Intent intent;
+        intent = new Intent(this, Main2Activity.class);
+        startActivity(intent);
     }
 }

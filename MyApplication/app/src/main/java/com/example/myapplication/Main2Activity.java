@@ -4,23 +4,30 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main2Activity extends AppCompatActivity {
     private ImageButton btn_agree;
     private ImageButton btn_refuse;
     private ImageButton btn_search;
-    private ImageButton btn_dashboard;
     private TextView txt_dialog;
     private EditText edt_keyword;
     private int statenum = 0;
-    private String[] topic_list = {"NBA", "蔡英文", "韓國瑜", "肥宅", "美國鄉民"};
+    private static ArrayList theList = new ArrayList(Arrays.asList("NBA", "蔡英文", "韓國瑜", "肥宅", "美國鄉民"));
+    static Object[] objectList = theList.toArray();
+    public static String[] topic_list = Arrays.copyOf(objectList,objectList.length,String[].class);
+
+    ///public static String[] topic_list = {"NBA", "蔡英文", "韓國瑜", "肥宅", "美國鄉民"};
+
     public static final String EXTRA_MESSAGE =
             "com.example.myapplication.extra.MESSAGE";
     String topic;
@@ -35,7 +42,6 @@ public class Main2Activity extends AppCompatActivity {
         btn_agree = findViewById(R.id.button);
         btn_refuse = findViewById(R.id.button3);
         btn_search = findViewById(R.id.button4);
-        btn_dashboard = findViewById(R.id.imageButton);
         txt_dialog = findViewById(R.id.textView);
         edt_keyword = findViewById(R.id.editText);
         statenum = 0;
@@ -91,6 +97,9 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent;
         intent = new Intent(this, MemeActivity.class);
         topic = edt_keyword.getText().toString();
+        theList.add(topic);
+        objectList = theList.toArray();
+        topic_list = Arrays.copyOf(objectList,objectList.length,String[].class);
         intent.putExtra(EXTRA_MESSAGE, topic);
         startActivity(intent);
     }
