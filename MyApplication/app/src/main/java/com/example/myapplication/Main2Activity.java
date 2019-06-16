@@ -47,9 +47,11 @@ public class Main2Activity extends AppCompatActivity {
         btn_refuse.setVisibility(View.VISIBLE);
         btn_search.setVisibility(View.INVISIBLE);
         edt_keyword.setVisibility(View.INVISIBLE);
+        topic = "dog";
     }
     private void state1(){
         txt_dialog.setText("今天是適合來點喵喵迷因的日子");
+        topic = "cat";
     }
     private void state2(){
         Random r = new Random();

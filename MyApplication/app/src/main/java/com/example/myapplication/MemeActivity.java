@@ -35,7 +35,7 @@ public class MemeActivity extends AppCompatActivity {
 
         //Random r = new Random();
         //int n = r.nextInt(meme_struct.count);
-
+        Log.d("query",query);
 
 //        for(int i = 0; i < 80; i++){
 //            Log.d("WTF",meme_struct.SA[i]);
