@@ -9,8 +9,8 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/main_viewpager"
-        android:layout_width="411dp"
-        android:layout_height="730dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_above="@+id/main_linear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
