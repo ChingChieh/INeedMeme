@@ -22,7 +22,12 @@ public class MemeActivity extends AppCompatActivity {
     public static ImageButton nextmeme;
     // GetImage getMeme = new GetImage();
     DataStruct meme_struct = new DataStruct();
-    int search_ready = 0;
+
+    // avoid random to the same number
+    int[] random_record;
+    int chill_time = 0;
+    int first_showMeme = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +52,32 @@ public class MemeActivity extends AppCompatActivity {
 
 
     public void showMeme(View view) {
-        Random r = new Random();
-        int n = r.nextInt(meme_struct.count);
+        if(first_showMeme == 0){
+            random_record = new int[meme_struct.count];
+            first_showMeme++;
+        }
+
+        Random r = new Random();;
+        int n;
+        int duplicate = 0;
+        while(true) {
+
+            n = r.nextInt(meme_struct.count);
+            duplicate = 0;
+            for(int i = 0; i < chill_time; ++i){
+                if (n == random_record[i]){
+                    duplicate = 1;
+                    break;
+                }
+
+            }
+            if(duplicate == 0){
+                break;
+            }
+        }
+        random_record[chill_time] = n;
+        chill_time++;
+
         Picasso.get()
                 .load(meme_struct.SA[n])
                 .resize(1000, 1000)
