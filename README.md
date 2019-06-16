@@ -13,9 +13,7 @@
 - 一開始透過一種滑頁的方式做個初步檢視，滑到一半相信已經開始期待滿滿的迷因了，最後只需要按下第三頁的小箭頭即可開始服用
 
 <center class="half">
-    <img src="https://i.imgur.com/ggAfWrb.jpg" width="100"/>
-    <img src="https://i.imgur.com/g30Yg4l.jpg" width="100"/>
-    <img src="https://imgur.com/xaSrRix.jpg" width="100"/>
+    <img src="https://i.imgur.com/ggAfWrb.jpg" width="100"/><img src="https://i.imgur.com/g30Yg4l.jpg" width="100"/><img src="https://imgur.com/xaSrRix.jpg" width="100"/>
 </center>
 
 ### 2.尋找迷因
