@@ -1,7 +1,10 @@
 # MomoMeme 使用介紹
 
 ## 迷因，到處都是迷因
-![](https://i.imgur.com/JsBciIj.png)   
+<p align="center">
+    <img src="https://i.imgur.com/JsBciIj.png"/>
+</p>
+
    
 ## 歡迎來到今夏最chill的迷因APP README!!   
 - 在這裡，我們將指引你通往迷因世界的道路，準備好讓生活充斥迷因了嗎?
