@@ -20,8 +20,10 @@ public class Main2Activity extends AppCompatActivity {
     private TextView txt_dialog;
     private EditText edt_keyword;
     private int statenum = 0;
-    private String[] topic_list = {"NBA", "蔡英文", "韓國瑜", "妹子", "肥宅", "色色", "台灣人"};
-
+    private String[] topic_list = {"NBA", "蔡英文", "韓國瑜", "肥宅", "美國鄉民"};
+    public static final String EXTRA_MESSAGE =
+            "com.example.myapplication.extra.MESSAGE";
+    String topic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +52,6 @@ public class Main2Activity extends AppCompatActivity {
         txt_dialog.setText("今天是適合來點喵喵迷因的日子");
     }
     private void state2(){
-        String topic;
         Random r = new Random();
         int n = r.nextInt(topic_list.length);
         topic = topic_list[n];
@@ -77,8 +78,11 @@ public class Main2Activity extends AppCompatActivity {
         Toast.makeText(this, "refuse", Toast.LENGTH_LONG).show();
     }
     public void agreefunc(View view){
-
         Toast.makeText(this, "agree", Toast.LENGTH_LONG).show();
+        Intent intent;
+        intent = new Intent(this, MemeActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, topic);
+        startActivity(intent);
     }
     public void searchfunc(View view){
         Toast.makeText(this, "search", Toast.LENGTH_LONG).show();
