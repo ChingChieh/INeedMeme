@@ -70,8 +70,7 @@ public class Main3Activity extends AppCompatActivity {
                             //Set the toast message for the "off" case.
                             toastMessage = "Alarm Off!";
                         }
-                        Toast.makeText(Main3Activity.this, toastMessage,Toast.LENGTH_SHORT)
-                                .show();
+                        //Toast.makeText(Main3Activity.this, toastMessage,Toast.LENGTH_SHORT).show();
 
                     }
                 });

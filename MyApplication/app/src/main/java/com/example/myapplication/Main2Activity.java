@@ -96,17 +96,17 @@ public class Main2Activity extends AppCompatActivity {
             case 3: state3();
                 break;
         }
-        Toast.makeText(this, "refuse", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "refuse", Toast.LENGTH_LONG).show();
     }
     public void agreefunc(View view){
-        Toast.makeText(this, "agree", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "agree", Toast.LENGTH_LONG).show();
         Intent intent;
         intent = new Intent(this, MemeActivity.class);
         intent.putExtra(EXTRA_MESSAGE, topic);
         startActivity(intent);
     }
     public void searchfunc(View view){
-        Toast.makeText(this, "search", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "search", Toast.LENGTH_LONG).show();
         Intent intent;
         intent = new Intent(this, MemeActivity.class);
         topic = edt_keyword.getText().toString();
