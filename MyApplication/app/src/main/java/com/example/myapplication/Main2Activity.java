@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,9 @@ public class Main2Activity extends AppCompatActivity {
     private ImageButton btn_search;
     private TextView txt_dialog;
     private EditText edt_keyword;
+    private ImageView drake;
+    private ImageView talking;
+    private ImageView drake_question;
     private int statenum = 0;
     /*private static ArrayList theList = new ArrayList(Arrays.asList("NBA", "蔡英文", "韓國瑜", "肥宅", "美國鄉民"));
     static Object[] objectList = theList.toArray();
@@ -44,6 +48,9 @@ public class Main2Activity extends AppCompatActivity {
         btn_search = findViewById(R.id.button4);
         txt_dialog = findViewById(R.id.textView);
         edt_keyword = findViewById(R.id.editText);
+        drake = findViewById(R.id.imageDrake);
+        talking = findViewById(R.id.talking);
+        drake_question = findViewById(R.id.drake_question);
         statenum = 0;
         state0();
     }
@@ -60,18 +67,24 @@ public class Main2Activity extends AppCompatActivity {
         topic = "cat";
     }
     private void state2(){
+//        drake.setImageDrawable(getResources().getDrawable(R.drawable.drake_no));
+        drake.setBackgroundResource(R.drawable.drake_no);
         Random r = new Random();
         int n = r.nextInt(topic_list.length);
         topic = topic_list[n];
         txt_dialog.setText("都不爽？那來點"+ topic +"的迷因總行吧");
     }
     private void state3(){
-        txt_dialog.setText("你毛真的多，所以你想看的是？");
+        txt_dialog.setText("\n\n你毛真多，所以你想看的是？");
         // edt_keyword.setText("visible");
+        drake_question.setBackgroundResource(R.drawable.drake_question);
         btn_agree.setVisibility(View.INVISIBLE);
         btn_refuse.setVisibility(View.INVISIBLE);
         btn_search.setVisibility(View.VISIBLE);
         edt_keyword.setVisibility(View.VISIBLE);
+        talking.setVisibility(View.INVISIBLE);
+        drake.setVisibility(View.INVISIBLE);
+
     }
     public void refusefunc(View view){
         statenum++;
