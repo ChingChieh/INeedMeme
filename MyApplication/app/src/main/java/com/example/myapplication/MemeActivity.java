@@ -37,18 +37,14 @@ public class MemeActivity extends AppCompatActivity {
         //int n = r.nextInt(meme_struct.count);
         Log.d("query",query);
 
-//        for(int i = 0; i < 80; i++){
-//            Log.d("WTF",meme_struct.SA[i]);
-//        }
-
-
-
     }
 
 
     public void showMeme(View view) {
+        Random r = new Random();
+        int n = r.nextInt(meme_struct.count);
         Picasso.get()
-                .load(meme_struct.SA[20])
+                .load(meme_struct.SA[n])
                 .resize(1000, 1000)
                 .into(meme);
     }

@@ -88,6 +88,11 @@ public class Main2Activity extends AppCompatActivity {
     }
     public void searchfunc(View view){
         Toast.makeText(this, "search", Toast.LENGTH_LONG).show();
+        Intent intent;
+        intent = new Intent(this, MemeActivity.class);
+        topic = edt_keyword.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, topic);
+        startActivity(intent);
     }
 
     public void EnterDashBoard(View view) {
