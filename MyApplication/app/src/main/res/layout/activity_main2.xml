@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="315dp"
+        android:layout_width="253dp"
         android:layout_height="129dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -81,7 +81,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="PornHub"
+        android:hint="PomHub"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
