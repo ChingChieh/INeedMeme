@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -18,7 +19,7 @@ public class MemeActivity extends AppCompatActivity {
 
     ImageView meme;
     String query = "https://www.google.co.in/search?biw=1366&bih=675&tbm=isch&sa=1&num=1000&ei=qFSJWsuTNc-wzwKFrZHoCw&q=";
-    public static Button nextmeme;
+    public static ImageButton nextmeme;
     // GetImage getMeme = new GetImage();
     DataStruct meme_struct = new DataStruct();
     int search_ready = 0;

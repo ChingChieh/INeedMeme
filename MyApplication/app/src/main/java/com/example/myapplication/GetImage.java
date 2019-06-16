@@ -43,6 +43,7 @@ public class GetImage extends AsyncTask<String, Void, String> {
         }
         mDataStruct.get().accessible = 1;
         MemeActivity.nextmeme.setEnabled(true);
+        MemeActivity.nextmeme.setBackgroundResource(R.drawable.pill_ready);
     }
 
     private void getImages(String url) {
