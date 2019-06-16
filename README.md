@@ -21,7 +21,7 @@
 ### 2.尋找迷因
 - 我們邀請知名饒舌歌手Drake和使用者進行對話，帶領使用者來一步一步通往迷因的世界
 
-<p>
+<p align="center">
     <img src="https://i.imgur.com/fpuvAN4.jpg" width="250"/>
     <img src="https://i.imgur.com/ty9aigp.jpg" width="250"/>
     <img src="https://i.imgur.com/ajprvpH.jpg" width="250"/>
@@ -31,13 +31,13 @@
 ### 3.看迷因啦~!
 - 點擊畫面上方藍色小藥丸，就可以暢遊迷因世界啦!!，藥丸也象徵一種比較 ㄎㄧㄤ 的感覺，跟我們的作品算是滿搭，整個人都 chill 了起來 ><
 
-<center class="half">
+<p align="center">
     <img src="https://i.imgur.com/R02FLuL.jpg" width="250"/>
-</center>
+</p>
 
 ### 4.迷因提醒
 - 別忘了設定定時提醒，在課業/工作忙碌之餘，透過我們的好運貓貓及狗狗，重新開啟我們的APP喔~!
-<p>
+<p align="center">
     <img src="https://i.imgur.com/YXhGVWU.jpg" width="250"/>
     <img src="https://i.imgur.com/3PxT8ns.jpg" width="250"/>
 </p>
