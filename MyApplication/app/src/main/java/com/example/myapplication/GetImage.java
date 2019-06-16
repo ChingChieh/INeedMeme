@@ -37,10 +37,11 @@ public class GetImage extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         // mDataStruct.get().SA = img_url;
-        // Log.d("image-gg-count", String.valueOf(mDataStruct.get().count));
+        Log.d("image-gg-count", String.valueOf(mDataStruct.get().count));
         for (int i = 0; i < mDataStruct.get().count; ++i){
             mDataStruct.get().SA[i] = img_url[i];
         }
+        mDataStruct.get().accessible = 1;
     }
 
     private void getImages(String url) {
