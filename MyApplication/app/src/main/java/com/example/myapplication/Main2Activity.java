@@ -22,11 +22,11 @@ public class Main2Activity extends AppCompatActivity {
     private TextView txt_dialog;
     private EditText edt_keyword;
     private int statenum = 0;
-    private static ArrayList theList = new ArrayList(Arrays.asList("NBA", "蔡英文", "韓國瑜", "肥宅", "美國鄉民"));
+    /*private static ArrayList theList = new ArrayList(Arrays.asList("NBA", "蔡英文", "韓國瑜", "肥宅", "美國鄉民"));
     static Object[] objectList = theList.toArray();
-    public static String[] topic_list = Arrays.copyOf(objectList,objectList.length,String[].class);
+    public static String[] topic_list = Arrays.copyOf(objectList,objectList.length,String[].class);*/
 
-    ///public static String[] topic_list = {"NBA", "蔡英文", "韓國瑜", "肥宅", "美國鄉民"};
+    private String[] topic_list = {"NBA", "蔡英文", "韓國瑜", "肥宅", "美國鄉民"};
 
     public static final String EXTRA_MESSAGE =
             "com.example.myapplication.extra.MESSAGE";
@@ -97,9 +97,9 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent;
         intent = new Intent(this, MemeActivity.class);
         topic = edt_keyword.getText().toString();
-        theList.add(topic);
+        /*theList.add(topic);
         objectList = theList.toArray();
-        topic_list = Arrays.copyOf(objectList,objectList.length,String[].class);
+        topic_list = Arrays.copyOf(objectList,objectList.length,String[].class);*/
         intent.putExtra(EXTRA_MESSAGE, topic);
         startActivity(intent);
     }

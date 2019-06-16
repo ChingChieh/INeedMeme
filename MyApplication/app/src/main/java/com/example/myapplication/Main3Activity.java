@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,18 +27,24 @@ public class Main3Activity extends AppCompatActivity {
     private EditText edt_hour;
     private EditText edt_min;
     private NotificationManager mNotificationManager;
-    private static final int NOTIFICATION_ID = 0;
+    public static int NOTIFICATION_ID = 2;
     private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
-    private String topic;
-    public static DataStruct meme_struct = new DataStruct();
-
+    String topic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         init();
+
+
+    }
+    public void setalarm(String classname){
+
+        Log.d("debug","now the class is :"+classname);
         Intent notifyIntent = new Intent(this, MyReceiver.class);
-        notifyIntent.putExtra("listlen", meme_struct.count);
+        if(classname.equals("喵咪"))  NOTIFICATION_ID = 0;
+        if(classname.equals("狗狗"))  NOTIFICATION_ID = 1;
+        Log.d("debug","now the number is :"+String.valueOf(NOTIFICATION_ID));
         boolean alarmUp = (PendingIntent.getBroadcast(this, NOTIFICATION_ID,
                 notifyIntent, PendingIntent.FLAG_NO_CREATE) != null);
         alarmToggle.setChecked(alarmUp);
@@ -70,9 +77,11 @@ public class Main3Activity extends AppCompatActivity {
         createNotificationChannel();
     }
     public void init(){
+        final String topicclass[] = {"喵咪","狗狗"};
+
         ArrayAdapter<String> topicList = new ArrayAdapter<>(Main3Activity.this,
                 android.R.layout.simple_spinner_dropdown_item,
-                Main2Activity.topic_list);
+                topicclass);
         alarmToggle = findViewById(R.id.alarmToggle);
         spin_topic = findViewById(R.id.spinner);
         edt_hour = findViewById(R.id.editText4);
@@ -83,14 +92,10 @@ public class Main3Activity extends AppCompatActivity {
         spin_topic.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                topic = Main2Activity.topic_list[position];
-                meme_struct.SA = new String[102];
-                meme_struct.accessible = 0;
-                String query = "https://www.google.co.in/search?biw=1366&bih=675&tbm=isch&sa=1&num=1000&ei=qFSJWsuTNc-wzwKFrZHoCw&q=";;
-                query = query + topic + "%20meme";
-                new GetImageForAlarm(meme_struct).execute(query);
-
-                Toast.makeText(Main3Activity.this, "你選的是" + Main2Activity.topic_list[position], Toast.LENGTH_SHORT).show();
+                topic = topicclass[position];
+                Toast.makeText(Main3Activity.this, "你選的是" + topicclass[position], Toast.LENGTH_SHORT).show();
+                Log.d("debug","in spinner now the class is :"+topic);
+                setalarm(topic);
             }
 
             @Override

@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -21,65 +22,82 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Random;
 
-import static com.example.myapplication.Main3Activity.meme_struct;
 
 
 public class MyReceiver extends BroadcastReceiver {
     private NotificationManager mNotificationManager;
-    private static final int NOTIFICATION_ID = 0;
+
     private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
-    Integer len = 0;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        len = intent.getIntExtra("listlen",0);
-
         deliverNotification(context);
     }
     private void deliverNotification(final Context context) {
 
 
         Intent contentIntent = new Intent(context, MainActivity.class);
+        if(Main3Activity.NOTIFICATION_ID == 0) {
+            int catimg[] = {R.drawable.cat1,R.drawable.cat2,R.drawable.cat3,R.drawable.cat4,R.drawable.cat5,R.drawable.cat6,R.drawable.cat7,R.drawable.cat8,
+                    R.drawable.cat9,R.drawable.cat10,R.drawable.cat11,R.drawable.cat12,R.drawable.cat13,R.drawable.cat14,R.drawable.cat15,};
+            Random r = new Random();
+            int n = r.nextInt(catimg.length);
+            PendingIntent contentPendingIntent = PendingIntent.getActivity
+                    (context, 0, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        PendingIntent contentPendingIntent = PendingIntent.getActivity
+            final NotificationCompat.Builder builder = new NotificationCompat
+                    .Builder(context, PRIMARY_CHANNEL_ID)
+                    .setSmallIcon(R.drawable.ic_stat_name)
+                    .setContentTitle("Meme Time!")
+                    .setContentText("Get back to get more meme!")
+                    .setContentIntent(contentPendingIntent)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setAutoCancel(true)
+                    .setDefaults(NotificationCompat.DEFAULT_ALL);
+
+            Bitmap androidImage = BitmapFactory
+                    .decodeResource(context.getResources(),catimg[n]);
+            builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(androidImage));
+            mNotificationManager.notify(0, builder.build());
+        }
+        if(Main3Activity.NOTIFICATION_ID == 1) {
+            int dogimg[] = {R.drawable.dog1,R.drawable.dog2,R.drawable.dog3,R.drawable.dog4,R.drawable.dog5,R.drawable.dog6,R.drawable.dog7,R.drawable.dog8,
+                    R.drawable.dog9,R.drawable.dog10,R.drawable.dog11,R.drawable.dog12,R.drawable.dog13,R.drawable.dog14,R.drawable.dog15,};
+            Random r = new Random();
+            int n = r.nextInt(dogimg.length);
+            PendingIntent contentPendingIntent = PendingIntent.getActivity
+                    (context, 1, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            final NotificationCompat.Builder builder = new NotificationCompat
+                    .Builder(context, PRIMARY_CHANNEL_ID)
+                    .setSmallIcon(R.drawable.ic_stat_name)
+                    .setContentTitle("Meme Time!")
+                    .setContentText("Get back to get more meme!")
+                    .setContentIntent(contentPendingIntent)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setAutoCancel(true)
+                    .setDefaults(NotificationCompat.DEFAULT_ALL);
+           Bitmap androidImage = BitmapFactory
+                    .decodeResource(context.getResources(),dogimg[n]);
+            builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(androidImage));
+            mNotificationManager.notify(1, builder.build());
+        }
+        /*PendingIntent contentPendingIntent = PendingIntent.getActivity
                 (context, NOTIFICATION_ID, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        final NotificationCompat.Builder builder = new NotificationCompat
-                .Builder(context, PRIMARY_CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_stat_name)
-                .setContentTitle("Meme Time!")
-                .setContentText("Get back to get more meme!")
-                .setContentIntent(contentPendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setAutoCancel(true)
-                .setDefaults(NotificationCompat.DEFAULT_ALL);
-
-
-
-
-        Bitmap androidImage = BitmapFactory
-                .decodeResource(context.getResources(),R.drawable.image);
-
-        Bitmap memeimage = null;
-        memeimage = downloadImageBitmap(meme_struct.SA[len]);
-        //Integer index = (len++)%len;
-        builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(androidImage));
-        mNotificationManager.notify(NOTIFICATION_ID, builder.build());
-
-
+            final NotificationCompat.Builder builder = new NotificationCompat
+                    .Builder(context, PRIMARY_CHANNEL_ID)
+                    .setSmallIcon(R.drawable.ic_stat_name)
+                    .setContentTitle("Meme Time!")
+                    .setContentText("Get back to get more meme!")
+                    .setContentIntent(contentPendingIntent)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setAutoCancel(true)
+                    .setDefaults(NotificationCompat.DEFAULT_ALL);
+            Bitmap androidImage = BitmapFactory
+                    .decodeResource(context.getResources(),R.drawable.image);
+            builder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(androidImage));
+            mNotificationManager.notify(NOTIFICATION_ID, builder.build());*/
     }
-
-    private Bitmap downloadImageBitmap(String sUrl) {
-        Bitmap bitmap = null;
-        try {
-            URL url = new URL(sUrl);
-            bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream());      // Decode Bitmap
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return bitmap;
-    }
-
-
 }
