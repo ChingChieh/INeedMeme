@@ -27,8 +27,9 @@ public class Main3Activity extends AppCompatActivity {
     private EditText edt_hour;
     private EditText edt_min;
     private NotificationManager mNotificationManager;
-    public static int NOTIFICATION_ID = 2;
+    private static final int NOTIFICATION_ID = 0;
     private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
+    public static int topicid;
     String topic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,8 @@ public class Main3Activity extends AppCompatActivity {
 
         Log.d("debug","now the class is :"+classname);
         Intent notifyIntent = new Intent(this, MyReceiver.class);
-        if(classname.equals("喵咪"))  NOTIFICATION_ID = 0;
-        if(classname.equals("狗狗"))  NOTIFICATION_ID = 1;
+        if(classname.equals("喵咪"))  topicid = 0;
+        if(classname.equals("狗狗"))  topicid = 1;
         Log.d("debug","now the number is :"+String.valueOf(NOTIFICATION_ID));
         boolean alarmUp = (PendingIntent.getBroadcast(this, NOTIFICATION_ID,
                 notifyIntent, PendingIntent.FLAG_NO_CREATE) != null);
